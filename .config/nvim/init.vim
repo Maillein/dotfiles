@@ -49,12 +49,13 @@ set foldmethod=marker
 "{{{ カラースキーム
 let g:tokyonight_style = "night"
 let g:tokyonight_transparent = "true"
+let g:tokyonight_colors = { 'comment': 'green2' }
 colorscheme tokyonight
 " colorscheme jellybeans
 " colorscheme hybrid
 " colorscheme tender
 " colorscheme elly
-"}}}
+" }}}
 
 "{{{ インデント関連
 set autoindent

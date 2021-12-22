@@ -10,10 +10,12 @@ SETUVAR _fish_abbr_gco:git\x20checkout
 SETUVAR _fish_abbr_glg:git\x20log\x20\x2d\x2dgraph\x20\x2d\x2dpretty\x3dformat\x27\x3a\x25x09\x25C\x28auto\x29\x20\x25h\x20\x25Cgreen\x20\x25ar\x20\x25Creset\x25x09by\x22\x25C\x28cyan\x20ul\x29\x25an\x25Creset\x22\x20\x25x09\x25C\x28auto\x29\x25s\x20\x25d\x27
 SETUVAR _fish_abbr_gst:git\x20status
 SETUVAR _fish_abbr_gsw:git\x20switch
+SETUVAR _fish_abbr_lmk:latexmk
 SETUVAR _fish_abbr_ls:lsd
 SETUVAR _fish_abbr_mine:minecraft\x2dlauncher\x2dcmd\x20\x2d\x2dusername\x20realshinya1999\x40gmail\x2ecom\x20\x2d\x2dpassword\x20Scene4649
 SETUVAR _fish_abbr_more:less
 SETUVAR _fish_abbr_relogin:exec\x20/usr/bin/fish\x20\x2d\x2dlogin
+SETUVAR _fish_abbr_vim:nvim
 SETUVAR _fisher_ccyip_2F_push_2D_line_2E_fish_files:/home/maillein/\x2econfig/fish/functions/pop_line\x2efish\x1e/home/maillein/\x2econfig/fish/functions/push_line\x2efish\x1e/home/maillein/\x2econfig/fish/conf\x2ed/push\x2dline_key_bindings\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:/home/maillein/\x2econfig/fish/functions/fisher\x2efish\x1e/home/maillein/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ewyqydsyq/emoji\x2dpowerline\x1eccyip/push\x2dline\x2efish

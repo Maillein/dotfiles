@@ -113,7 +113,7 @@
             "    $2",
             "}"
         ],
-        "description": ""
+        "description": "AtCoder用テンプレート"
     },
 
     "debug": {
@@ -127,7 +127,7 @@
             "    };",
             "}"
         ],
-        "description": ""
+        "description": "デバック用マクロ"
     },
 
     "shotest_path": {
@@ -153,7 +153,7 @@
             "    dist",
             "}"
         ],
-        "description": ""
+        "description": "ダイクストラ法"
     },
 
     "yesno": {
@@ -165,7 +165,7 @@
             "    println!(\"No\");",
             "}"
         ],
-        "description": ""
+        "description": "Yes/Noを出力"
     },
 
     "printv": {
@@ -173,6 +173,40 @@
         "body": [
             "println!(\"{}\", $1);$2"
         ],
-        "description": ""
+        "description": "値を出力"
+    },
+
+    "modfunc": {
+        "prefix": "modfunc",
+        "body": [
+            "fn mod_pow(r: usize, mut n: usize) -> usize {",
+            "    let mut t = 1;",
+            "    let mut s = r % MOD;",
+            "    while n > 0 {",
+            "        if n & 1 == 1 {",
+            "            t = t * s % MOD;",
+            "        }",
+            "        s = s * s % MOD;",
+            "        n >>= 1;",
+            "    }",
+            "    t",
+            "}",
+            "",
+            "fn mod_inv(x: usize) -> usize {",
+            "    mod_pow(x, MOD - 2)",
+            "}",
+            "",
+            "fn mod_conv(n: usize, k: usize) -> usize {",
+            "    let k = std::cmp::min(k, n - k);",
+            "    let mut nu = 1;",
+            "    let mut de = 1;",
+            "    for i in 0..k {",
+            "        nu = nu * (n - i) % MOD;",
+            "        de = de * (i + 1) % MOD;",
+            "    }",
+            "    nu * mod_inv(de) % MOD",
+            "}",
+        ],
+        "description": "累乗、逆元、コンビネーションを計算"
     }
 }

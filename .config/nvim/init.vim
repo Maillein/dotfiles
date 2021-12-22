@@ -79,3 +79,22 @@ tnoremap <Esc> <C-\><C-n>
 "Pythonのパス
 let g:python_host_prog = expand('~/.local/share/virtualenvs/.nvim-python2-AaldqeR6/bin/python2')
 let g:python3_host_prog = expand('~/.local/share/virtualenvs/.nvim-python3-Jmi4iJEZ/bin/python3')
+
+" latexの設定
+" Starting server for LaTeX inverse search.
+function! s:myinversetex()
+    if !filereadable('/tmp/sv4nvim' . expand("%:p"))
+        call mkdir('/tmp/sv4nvim' . expand("%:p:h"),"p")
+        call serverstart('/tmp/sv4nvim' . expand("%:p"))
+    endif
+endfunction
+command! Serverorig call s:myinversetex()
+
+augroup latex_new
+" texソースのときに自動実行
+autocmd!
+autocmd BufRead *.tex Serverorig
+autocmd BufRead *.ltx Serverorig
+autocmd BufWritePost *.tex Serverorig
+autocmd BufWritePost *.ltx Serverorig
+augroup END

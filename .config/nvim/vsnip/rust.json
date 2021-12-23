@@ -205,8 +205,47 @@
             "        de = de * (i + 1) % MOD;",
             "    }",
             "    nu * mod_inv(de) % MOD",
-            "}",
+            "}"
         ],
         "description": "累乗、逆元、コンビネーションを計算"
+    },
+
+    "combination": {
+        "prefix": "combination",
+        "body": [
+            "const COM_TABLE_SIZE: usize = 5_000_001;",
+            "struct COM {",
+            "    fact_table: Vec<usize>,",
+            "    inv_table: Vec<usize>,",
+            "    finv_table: Vec<usize>,",
+            "}",
+            "",
+            "impl COM {",
+            "    fn new() -> Self {",
+            "        let mut fact_table = vec![1usize; COM_TABLE_SIZE];",
+            "        let mut inv_table = vec![1usize; COM_TABLE_SIZE];",
+            "        let mut finv_table = vec![1usize; COM_TABLE_SIZE];",
+            "        for i in 2..COM_TABLE_SIZE {",
+            "            fact_table[i] = fact_table[i - 1] * i % MOD;",
+            "            inv_table[i] = MOD - inv_table[MOD % i] * (MOD / i) % MOD;",
+            "            finv_table[i] = finv_table[i - 1] * inv_table[i] % MOD;",
+            "        }",
+            "        Self {",
+            "            fact_table,",
+            "            inv_table,",
+            "            finv_table,",
+            "        }",
+            "    }",
+            "",
+            "    fn comb(&self, n: usize, k: usize) -> usize {",
+            "        if n < k {",
+            "            0",
+            "        } else {",
+            "            self.fact_table[n] * (self.finv_table[k] * self.finv_table[n - k] % MOD) % MOD",
+            "        }",
+            "    }",
+            "}"
+        ],
+        "description": "事前計算を行い、高速にnCkを求める。(ex: let com = COM::new(); com.comb(5, 2);)"
     }
 }

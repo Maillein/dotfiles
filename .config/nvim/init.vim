@@ -47,6 +47,8 @@ set foldmethod=marker
 "}}}
 
 "{{{ カラースキーム
+" True Color を使えるようになるおまじない
+set termguicolors
 let g:tokyonight_style = "night"
 let g:tokyonight_transparent = "true"
 let g:tokyonight_colors = { 'comment': 'green2' }

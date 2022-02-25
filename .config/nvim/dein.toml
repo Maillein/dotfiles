@@ -6,13 +6,42 @@ repo = 'jiangmiao/auto-pairs'
 # repo = 'cohama/lexima.vim'
 
 [[plugins]]
-repo = 'vim-airline/vim-airline'
+repo = 'kyazdani42/nvim-web-devicons'
+
+[[plugins]]
+repo = 'nvim-lualine/lualine.nvim'
+depends = ['kyazdani42/nvim-web-devicons']
 hook_add = '''
-    let g:airline#extensions#coc#enabled = 0
-    let airline#extensions#coc#error_symbol = 'Error:'
-    let airline#extensions#coc#warning_symbol = 'Warning:'
-    let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
-    let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
+lua << EOF
+require'lualine'.setup {
+  options = {
+    icons_enabled = true,
+    theme = 'auto',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {},
+    always_divide_middle = true,
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = {}
+}
+EOF
 '''
 
 [[plugins]]
@@ -77,4 +106,16 @@ require'nvim-treesitter.configs'.setup {
     ensure_installed = 'maintained'
 }
 EOF
+'''
+
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
+hook_add = '''
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 '''

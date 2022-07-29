@@ -44,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/maillein/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?.lua;/home/maillein/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?/init.lua;/home/maillein/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?.lua;/home/maillein/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/maillein/.cache/nvim/packer_hererocks/2.0.5/lib/lua/5.1/?.so"
+local package_path_str = "/home/maillein/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/maillein/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/maillein/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/maillein/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/maillein/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -79,21 +79,65 @@ _G.packer_plugins = {
     path = "/home/maillein/.local/share/nvim/site/pack/packer/start/caw.vim",
     url = "https://github.com/tyru/caw.vim"
   },
-  ["nvim-treesitter"] = {
+  ["fern-git-status.vim"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
-    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/fern-git-status.vim",
+    url = "https://github.com/lambdalisue/fern-git-status.vim"
+  },
+  ["fern-hijack.vim"] = {
+    loaded = true,
+    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/fern-hijack.vim",
+    url = "https://github.com/lambdalisue/fern-hijack.vim"
+  },
+  ["fern-renderer-nerdfont.vim"] = {
+    loaded = true,
+    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/fern-renderer-nerdfont.vim",
+    url = "https://github.com/lambdalisue/fern-renderer-nerdfont.vim"
+  },
+  ["fern.vim"] = {
+    loaded = true,
+    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/fern.vim",
+    url = "https://github.com/lambdalisue/fern.vim"
+  },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  ["nerdfont.vim"] = {
+    loaded = true,
+    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/nerdfont.vim",
+    url = "https://github.com/lambdalisue/nerdfont.vim"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/opt/packer.nvim",
+    loaded = true,
+    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["tokyonight.nvim"] = {
     loaded = true,
     path = "/home/maillein/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
+  },
+  ["vim-sandwich"] = {
+    loaded = true,
+    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/vim-sandwich",
+    url = "https://github.com/machakann/vim-sandwich"
   }
 }
 
@@ -103,5 +147,6 @@ if should_profile then save_profiles() end
 end)
 
 if not no_errors then
+  error_msg = error_msg:gsub('"', '\\"')
   vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: '..error_msg..'" | echom "Please check your config for correctness" | echohl None')
 end

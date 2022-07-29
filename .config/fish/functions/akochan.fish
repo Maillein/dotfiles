@@ -1,5 +1,6 @@
 function akochan
-    set file_name /home/maillein/Downloads/(date '+%Y_%-m_%-d')_Jade_Room_South.json
+    # set file_name /home/maillein/Downloads/(date '+%Y_%-m_%-d')_Jade_Room_South.json
+    set file_name /home/maillein/Downloads/(date '+%Y_%-m_%-d')_Gold_Room_South.json
     docker run --rm --volume /home/maillein/Downloads:/home/maillein/Downloads akochan-reviewer:latest \
         --no-open --use-placement-ev --without-viewer \
         # -n 0.005 \

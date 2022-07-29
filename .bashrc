@@ -174,3 +174,5 @@ alias mine='(minecraft-launcher-cmd --username realshinya1999@gmail.com --passwo
 
 # github-cliの設定
 eval "$(gh completion -s bash)"
+
+exec fish

@@ -29,4 +29,7 @@ if ($^O eq 'linux') {
 }
 
 # clean up
-$clean_full_ext = "%R.synctex.gz"
+$clean_full_ext = "%R.synctex.gz";
+
+# output directory
+$out_dir = "out";

@@ -1,0 +1,4 @@
+function gitmain
+    git config --global user.name "Maillein"
+    git config --global user.email "realshinya1999@gmail.com"
+end

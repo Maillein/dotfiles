@@ -180,17 +180,16 @@ repo = 'ray-x/lsp_signature.nvim'
 on_source = 'nvim-lspconfig'
 #}}}
 
-[[plugins]]
-repo = 'lervag/vimtex'
-on_ft = ['tex']
-hook_source = '''
-" 手動でコンパイル
-let g:vimtex_compiler_latexmk = { 'continuous' : 0,}
-" qpdfviewでpdfプレビュー
-let g:vimtex_view_general_viewer = 'qpdfview'
-let g:vimtex_view_general_options = '--unique @pdf\#src:@tex:@line:@col'
-let g:vimtex_view_general_options_latexmk = '--unique'
-'''
+# [[plugins]]
+# repo = 'lervag/vimtex'
+# on_ft = ['tex']
+# hook_source = '''
+# " 手動でコンパイル
+# let g:vimtex_compiler_latexmk = { 'continuous' : 0,}
+# " qpdfviewでpdfプレビュー
+# let g:vimtex_view_general_viewer = 'qpdfview'
+# let g:vimtex_view_general_options = '--unique @pdf\#src:@tex:@line:@col'
+# '''
 
 [[plugins]]
 repo = 'iamcco/markdown-preview.nvim'

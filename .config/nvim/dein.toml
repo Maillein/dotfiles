@@ -103,7 +103,7 @@ require'nvim-treesitter.configs'.setup {
         enable = true, -- これを設定することでtree-sitterによるインデントを有効にできます
         disable = { 'rust' },
     },
-    ensure_installed = 'maintained'
+    ensure_installed = 'all'
 }
 EOF
 '''

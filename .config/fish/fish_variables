@@ -1,7 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export DENO_INSTALL:/home/maillein/\x2edeno
-SETUVAR __fish_initialized:3100
+SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_cl:clear
 SETUVAR _fish_abbr_cp:cp\x20\x2di
 SETUVAR _fish_abbr_fullpath:readlink\x20\x2df
@@ -47,5 +47,6 @@ SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_pager_color_selected_background:\x2dr
 SETUVAR fish_prompt_pwd_dir_length:0
 SETUVAR --export fish_user_paths:/home/maillein/Programs/ec_downloader_v3/target/release/\x3a/home/maillein/\x2elocal/share/gem/ruby/3\x2e0\x2e0/bin\x3a/home/meillein/\x2elocal/share/gem/ruby/3\x2e0\x2e0/bin\x3a/home/maillein/\x2edeno/bin\x3a/home/maillein/RiderProjects/ECDownloader2/ECDownloader2/publish

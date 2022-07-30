@@ -17,3 +17,6 @@ vim.opt.autoindent = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
+
+-- 保存してないファイルを閉じようとしたときに確認をする
+vim.opt.confirm = true

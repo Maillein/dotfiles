@@ -6,6 +6,9 @@ vim.keymap.set('v', 'k', 'gk')
 vim.keymap.set('n', '<Down>', 'gj')
 vim.keymap.set('n', '<Up>', 'gk')
 
+-- leaderキーを変更
+vim.cmd([[let mapleader = "\<space>"]])
+
 -- Escでターミナルを抜ける
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 

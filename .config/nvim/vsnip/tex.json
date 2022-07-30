@@ -1,0 +1,32 @@
+{
+    "base": {
+        "prefix": "base",
+        "body": [
+            "\\documentclass[a4j]{jsarticle}",
+            "",
+            "\\title{タイトル}",
+            "\\author{三浦 真矢}",
+            "\\date{}",
+            "",
+            "\\begin{document}",
+            "\\maketitle",
+            "",
+            "\\end{document}"
+        ],
+        "description": "latexテンプレート"
+    },
+
+    "figure": {
+        "prefix": "figure",
+        "body": [
+            "\\begin{figure}[htbp]",
+            "    \\centering",
+            "    \\includegraphics[width=\\linewidth]{$1}",
+            "    \\caption{$2}",
+            "    \\label{$3}",
+            "\\end{figure}",
+            ""
+        ],
+        "description": "画像の取り込み"
+    }
+}

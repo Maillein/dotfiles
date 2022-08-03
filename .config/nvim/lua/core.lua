@@ -2,6 +2,7 @@
 vim.cmd('syntax on')
 vim.cmd('filetype plugin indent on')
 vim.opt.number = true
+vim.opt.cursorline = true
 
 -- マーカー文字列で折りたたむ
 vim.opt.foldmethod = 'marker'

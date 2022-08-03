@@ -32,7 +32,7 @@ cmp.setup({
     --     fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
     --   end
     -- end, { "i", "s" }),
-    -- 
+    --
     -- ["<S-Tab>"] = cmp.mapping(function()
     --   if cmp.visible() then
     --     cmp.select_prev_item()
@@ -57,7 +57,7 @@ cmp.setup({
 
       -- The function below will be called before any actual modifications from lspkind
       -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-      before = function (entry, vim_item)
+      before = function(entry, vim_item)
         return vim_item
       end
     })
@@ -106,5 +106,9 @@ require('lspconfig')['sumneko_lua'].setup {
 }
 
 require('lspconfig')['rust_analyzer'].setup {
+
+}
+
+require('lspconfig')['hls'].setup {
 
 }

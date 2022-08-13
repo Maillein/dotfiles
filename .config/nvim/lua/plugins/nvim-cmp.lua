@@ -112,3 +112,11 @@ require('lspconfig')['rust_analyzer'].setup {
 require('lspconfig')['hls'].setup {
 
 }
+
+require('lspconfig')['solargraph'].setup {
+
+}
+
+require('lspconfig')['omnisharp'].setup {
+
+}

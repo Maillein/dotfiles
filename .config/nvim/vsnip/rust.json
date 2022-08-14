@@ -118,7 +118,6 @@
             "    input! {",
             "        $1",
             "    }",
-            "    $2",
             "}"
         ],
         "description": "AtCoder用テンプレート"
@@ -213,9 +212,17 @@
             "        de = de * (i + 1) % MOD;",
             "    }",
             "    nu * mod_inv(de) % MOD",
+            "}",
+            "fn mod_fact(x: usize) -> usize {",
+            "    let mut r = 1usize;",
+            "    for i in 2..=x {",
+            "        r *= i;",
+            "        r %= MOD;",
+            "    }",
+            "    r",
             "}"
         ],
-        "description": "累乗、逆元、コンビネーションを計算"
+        "description": "階乗，累乗、逆元、コンビネーションを計算"
     },
 
     "combination": {

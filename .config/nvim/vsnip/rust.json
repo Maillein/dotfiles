@@ -262,5 +262,42 @@
             "}"
         ],
         "description": "事前計算を行い、高速にnCkを求める。(ex: let com = COM::new(); com.comb(5, 2);)"
+    },
+    "combsmall": {
+        "prefix": "combsmall",
+        "body": [
+            "const COM_SMALL_TABLE_SIZE: usize = 61;",
+            "",
+            "struct ConbSmall {",
+            "    tbl: Vec<Vec<usize>>,",
+            "}",
+            "impl ConbSmall {",
+            "    fn new() -> Self {",
+            "        let mut tbl = vec![vec![0; COM_SMALL_TABLE_SIZE]; COM_SMALL_TABLE_SIZE];",
+            "        let n = tbl.len();",
+            "        for i in 0..n {",
+            "            tbl[i][0] = 1;",
+            "            tbl[i][i] = 1;",
+            "        }",
+            "",
+            "        for i in 1..n {",
+            "            for j in 1..i {",
+            "                tbl[i][j] = tbl[i - 1][j] + tbl[i - 1][j - 1];",
+            "            }",
+            "        }",
+            "",
+            "        ConbSmall { tbl }",
+            "    }",
+            "",
+            "    fn comb(&self, n: usize, r: usize) -> usize {",
+            "        if n < r {",
+            "            0",
+            "        } else {",
+            "            self.tbl[n][r]",
+            "        }",
+            "    }",
+            "}"
+        ],
+        "description": ""
     }
 }

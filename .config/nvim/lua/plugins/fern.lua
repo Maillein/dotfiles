@@ -1,4 +1,5 @@
 vim.g['fern#renderer'] = 'nerdfont'
+vim.g['fern#drawer_keep'] = true
 -- vim.g['fern#disable_default_mappings'] = 1
 vim.keymap.set('n', '<C-n>', ':Fern . -reveal=% -drawer -toggle -width=30<CR>')
 vim.cmd([[

@@ -79,4 +79,8 @@ return require('packer').startup(function(use)
     --   require("plugin.treesitter")
     -- end,
   })
+  use('p00f/nvim-ts-rainbow')
+
+  -- ウィンドウのリサイズを簡単にする
+  use 'simeji/winresizer'
 end)

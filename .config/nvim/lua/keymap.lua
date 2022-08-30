@@ -14,3 +14,13 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 
 -- set ESC+ESC Clear Search hilight
 vim.keymap.set('n', '<ESC><ESC>', ':<C-u>set nohlsearch!<CR>')
+
+--新規タブでターミナルを起動
+vim.keymap.set('n', 'tt', ':tabe<CR>:terminal<CR>', { noremap = true, silent = true })
+
+-- ターミナルを開いたら常にinsertモードに入る
+vim.cmd([[autocmd TermOpen * :startinsert]])
+
+-- ターミナルで行番号を非表示
+-- vim.cmd([[autocmd TermOpen * setlocal norelativenumber]])
+-- vim.cmd([[autocmd TermOpen * setlocal nonumber]])

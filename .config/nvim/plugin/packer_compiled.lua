@@ -164,6 +164,11 @@ _G.packer_plugins = {
     path = "/home/maillein/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-ts-rainbow"] = {
+    loaded = true,
+    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
+    url = "https://github.com/p00f/nvim-ts-rainbow"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/maillein/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -198,6 +203,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/maillein/.local/share/nvim/site/pack/packer/start/vim-vsnip",
     url = "https://github.com/hrsh7th/vim-vsnip"
+  },
+  winresizer = {
+    loaded = true,
+    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/winresizer",
+    url = "https://github.com/simeji/winresizer"
   }
 }
 

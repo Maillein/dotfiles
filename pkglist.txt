@@ -7,6 +7,7 @@ amd-ucode
 android-tools
 android-udev
 apparmor
+aspnet-runtime
 audacious
 autoconf
 automake
@@ -18,6 +19,7 @@ binutils
 bison
 blueman
 boost
+bottom
 btrfs-progs
 byobu
 bzip2
@@ -27,7 +29,6 @@ clang
 cmake
 coreutils
 cpupower
-crda
 cronie
 cryptsetup
 dbus-x11
@@ -40,6 +41,7 @@ dmidecode
 dmraid
 dnsmasq
 docker
+docker-compose
 dosfstools
 dotnet-sdk
 e2fsprogs
@@ -51,6 +53,8 @@ exfat-utils
 exo
 f2fs-tools
 fakeroot
+fcitx-skk
+fd
 ffmpeg
 ffmpegthumbnailer
 file
@@ -69,11 +73,11 @@ gettext
 gimp
 github-cli
 glibc
-gnome-icon-theme
 gnome-keyring
 gnome-mahjongg
 gnome-mines
 gnome-themes-extra
+go
 gparted
 grep
 grub
@@ -95,6 +99,7 @@ gzip
 haveged
 hdf5
 hexchat
+hexedit
 htop
 inetutils
 inxi
@@ -109,6 +114,8 @@ jfsutils
 jq
 jre8-openjdk
 jre8-openjdk-headless
+jupyter-nbconvert
+jupyter-notebook
 kernel-alive
 kitty
 less
@@ -135,7 +142,6 @@ lightdm
 lightdm-gtk-greeter
 lightdm-gtk-greeter-settings
 linux-firmware
-linux414-headers
 linux510
 linux515
 linux515-headers
@@ -183,9 +189,11 @@ mtpfs
 mugshot
 nano
 neovim
+net-tools
 nethogs
 network-manager-applet
 networkmanager
+networkmanager-l2tp
 networkmanager-openconnect
 networkmanager-openvpn
 networkmanager-pptp
@@ -230,10 +238,15 @@ pulseaudio-ctl
 pulseaudio-zeroconf
 pyenv
 python-fonttools
+python-ipywidgets
+python-matplotlib
+python-numpy
 python-pipenv
 python-pygments
-qemu
-qpdfview
+python-sphinx_rtd_theme
+qemu-desktop
+radeontop
+refind
 reiserfsprogs
 rsync
 ruby
@@ -251,7 +264,8 @@ simplescreenrecorder
 snapd
 snapd-glib
 spectre-meltdown-checker
-steam-manjaro
+steam
+strace
 sudo
 sysfsutils
 systemd-fsck-silent
@@ -280,6 +294,7 @@ thunderbird
 timeshift
 tk
 tlp
+transmission-gtk
 tree
 ttf-dejavu
 ttf-droid
@@ -304,8 +319,10 @@ vlc
 vtk
 vulkan-intel
 vulkan-radeon
+waifu2x-ncnn-vulkan
 wallpapers-2018
 wallpapers-juhraya
+wezterm
 wget
 which
 wine

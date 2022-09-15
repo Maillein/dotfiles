@@ -1,257 +1,139 @@
-# name: emoji-powerline
-# 
-# based on agnoster's Theme - https://gist.github.com/3712874
-# A Powerline-inspired theme for FISH
-#
-# # README
-#
-# In order for this theme to render correctly, you will need a
-# [Powerline-patched font](https://gist.github.com/1595572).
-
-## Set this options in your config.fish (if you want to :])
-# set -g theme_display_user yes
-# set -g theme_hide_hostname yes
-# set -g theme_hide_hostname no
-# set -g default_user your_normal_user
-
-
-
-set -g current_bg NONE
-
-set hard_space '\u2060'
-#set icon_root '🌏'
-#set icon_home '🏡'
-set icon_root '/'
-set icon_home '~'
-
-set prompt_text '→'
-
-set colour_text_path 006272
-set colour_text_dirty 510C38
-set colour_text_clean 2A0095
-
-set colour_path 41C1D7
-set colour_dirty BE4D95
-set colour_clean 7E6FFF
-
-set segment_separator \uE0B0
-set segment_splitter \uE0B1
-set right_segment_separator \uE0B0
-# ===========================
-# Helper methods
-# ===========================
-
-set -g __fish_git_prompt_showdirtystate 'yes'
-set -g __fish_git_prompt_char_dirtystate '📂'
-set -g __fish_git_prompt_char_cleanstate '📁'
-
-function parse_git_dirty
-  set -l submodule_syntax
-  set submodule_syntax "--ignore-submodules=dirty"
-  set git_dirty (command git status --porcelain $submodule_syntax  2> /dev/null)
-  if [ -n "$git_dirty" ]
-    if [ $__fish_git_prompt_showdirtystate = "yes" ]
-      echo -n "$__fish_git_prompt_char_dirtystate"
-    end
-  else
-    if [ $__fish_git_prompt_showdirtystate = "yes" ]
-      echo -n "$__fish_git_prompt_char_cleanstate"
-    end
-  end
-end
-
-
-# ===========================
-# Segments functions
-# ===========================
-
-function prompt_segment -d "Function to draw a segment"
-  set -l bg
-  set -l fg
-  if [ -n "$argv[1]" ]
-    set bg $argv[1]
-  else
-    set bg normal
-  end
-  if [ -n "$argv[2]" ]
-    set fg $argv[2]
-  else
-    set fg normal
-  end
-  if [ "$current_bg" != 'NONE' -a "$argv[1]" != "$current_bg" ]
-    set_color -b $bg
-    set_color $current_bg
-    echo -n "$segment_separator "
-    set_color -b $bg
-    set_color $fg
-  else
-    set_color -b $bg
-    set_color $fg
-    echo -n " "
-  end
-  set current_bg $argv[1]
-  if [ -n "$argv[3]" ]
-    echo -n -s $argv[3] " "
-  end
-end
-
-function prompt_finish -d "Close open segments"
-  if [ -n $current_bg ]
-    set_color -b normal
-    set_color $current_bg
-    echo -n "$segment_separator "
-  end
-  set -g current_bg NONE
-end
-
-
-# ===========================
-# Theme components
-# ===========================
-
-function prompt_virtual_env -d "Display Python virtual environment"
-  if test "$VIRTUAL_ENV"
-    prompt_segment white black (basename $VIRTUAL_ENV)
-  end
-end
-
-function prompt_user -d "Display current user if different from $default_user"
-  if [ "$theme_display_user" = "yes" ]
-    if [ "$USER" != "$default_user" -o -n "$SSH_CLIENT" ]
-      set USER (whoami)
-      get_hostname
-      if [ $HOSTNAME_PROMPT ]
-        set USER_PROMPT $USER@$HOSTNAME_PROMPT
-      else
-        set USER_PROMPT $USER
-      end
-      prompt_segment black yellow $USER_PROMPT
-    end
-  else
-    get_hostname
-    if [ $HOSTNAME_PROMPT ]
-      prompt_segment black yellow $HOSTNAME_PROMPT
-    end
-  end
-end
-
-function get_hostname -d "Set current hostname to prompt variable $HOSTNAME_PROMPT if connected via SSH"
-  set -g HOSTNAME_PROMPT ""
-  if [ "$theme_hide_hostname" = "no" -o \( "$theme_hide_hostname" != "yes" -a -n "$SSH_CLIENT" \) ]
-    set -g HOSTNAME_PROMPT (hostname)
-  end
-end
-
-function wrap_root
-
-end
-
-function prompt_dir -d "Display the current directory"
-  prompt_segment $colour_path $colour_text_path (string trim (string join " $segment_splitter " (string split '/' (string replace -r '^\/$' "$icon_root$hard_space" (string replace -r '^\/(.+?)' "$icon_root/\$1" (string replace -r '^\~' "$icon_home$hard_space" (string trim (prompt_pwd))))))))
-end
-
-
-function prompt_hg -d "Display mercurial state"
-  set -l branch
-  set -l state
-  if command hg id >/dev/null 2>&1
-    if command hg prompt >/dev/null 2>&1
-      set branch (command hg prompt "{branch}")
-      set state (command hg prompt "{status}")
-      set branch_symbol \uE0A0
-      if [ "$state" = "!" ]
-        prompt_segment red white "$branch_symbol $branch ±"
-      else if [ "$state" = "?" ]
-          prompt_segment $colour_clean $colour_text_clean "$branch_symbol $branch ±"
-        else
-          prompt_segment $colour_dirty $colour_text_dirty "$branch_symbol $branch"
-      end
-    end
-  end
-end
-
-
-function prompt_git -d "Display the current git state"
-  set -l ref
-  set -l dirty
-  if command git rev-parse --is-inside-work-tree >/dev/null 2>&1
-    set dirty (parse_git_dirty)
-    set ref (command git symbolic-ref HEAD 2> /dev/null)
-    if [ $status -gt 0 ]
-      set -l branch (command git show-ref --head -s --abbrev |head -n1 2> /dev/null)
-      set ref "➦ $branch "
-    end
-    set branch_symbol \uE0A0
-    set -l branch (string join " $segment_splitter " (string split '/' (echo $ref | sed  "s-refs/heads/-$branch_symbol -")))
-    if [ "$dirty" = "$__fish_git_prompt_char_dirtystate" ]
-      prompt_segment $colour_dirty $colour_text_dirty "$branch $dirty"
-    else
-      prompt_segment $colour_clean $colour_text_clean "$branch $dirty"
-    end
-  end
-end
-
-
-function prompt_svn -d "Display the current svn state"
-  set -l ref
-  if command svn ls . >/dev/null 2>&1
-    set branch (svn_get_branch)
-    set branch_symbol \uE0A0
-    set revision (svn_get_revision)
-    prompt_segment green black "$branch_symbol $branch:$revision"
-  end
-end
-
-function svn_get_branch -d "get the current branch name"
-  svn info 2> /dev/null | awk -F/ \
-      '/^URL:/ { \
-        for (i=0; i<=NF; i++) { \
-          if ($i == "branches" || $i == "tags" ) { \
-            print $(i+1); \
-            break;\
-          }; \
-          if ($i == "trunk") { print $i; break; } \
-        } \
-      }'
-end
-
-function svn_get_revision -d "get the current revision number"
-  svn info 2> /dev/null | sed -n 's/Revision:\ //p'
-end
-
-
-function prompt_status -d "the symbols for a non zero exit status, root and background jobs"
-    if [ $RETVAL -ne 0 ]
-      prompt_segment black red "⚠️ "
-    end
-
-    # if superuser (uid == 0)
-    set -l uid (id -u $USER)
-    if [ $uid -eq 0 ]
-      prompt_segment black yellow "⚡"
-    end
-
-    # Jobs display
-    if [ (jobs -l | wc -l) -gt 0 ]
-      prompt_segment black cyan "⚙"
-    end
-end
-
-# ===========================
-# Apply theme
-# ===========================
-
 function fish_prompt
-  set -g RETVAL $status
-  prompt_status
-  prompt_virtual_env
-  prompt_user
-  prompt_dir
-  type -q hg;  and prompt_hg
-  type -q git; and prompt_git
-  type -q svn; and prompt_svn
-  prompt_finish
-  echo ""
-  prompt_segment $colour_path $colour_text_path $prompt_text
-  prompt_finish
+    # This prompt shows:
+    # - green lines if the last return command is OK, red otherwise
+    # - your user name, in red if root or yellow otherwise
+    # - your hostname, in cyan if ssh or blue otherwise
+    # - the current path (with prompt_pwd)
+    # - date +%X
+    # - the current virtual environment, if any
+    # - the current git status, if any, with fish_git_prompt
+    # - the current battery state, if any, and if your power cable is unplugged, and if you have "acpi"
+    # - current background jobs, if any
+
+    # It goes from:
+    # ┬─[nim@Hattori:~]─[11:39:00]
+    # ╰─>$ echo here
+
+    # To:
+    # ┬─[nim@Hattori:~/w/dashboard]─[11:37:14]─[V:django20]─[G:master↑1|●1✚1…1]─[B:85%, 05:41:42 remaining]
+    # │ 2    15054    0%    arrêtée    sleep 100000
+    # │ 1    15048    0%    arrêtée    sleep 100000
+    # ╰─>$ echo there
+
+    set -l retc red
+    test $status = 0; and set retc green
+
+    set -q __fish_git_prompt_showupstream
+    or set -g __fish_git_prompt_showupstream auto
+
+    function _nim_prompt_wrapper
+        set retc $argv[1]
+        set -l field_name $argv[2]
+        set -l field_value $argv[3]
+
+        set_color normal
+        set_color $retc
+        echo -n '─'
+        set_color -o green
+        echo -n '['
+        set_color normal
+        test -n $field_name
+        and echo -n $field_name:
+        set_color $retc
+        echo -n $field_value
+        set_color -o green
+        echo -n ']'
+    end
+
+    set_color $retc
+    echo -n '┬─'
+    set_color -o green
+    echo -n [
+
+    if functions -q fish_is_root_user; and fish_is_root_user
+        set_color -o red
+    else
+        set_color -o yellow
+    end
+
+    echo -n $USER
+    # set_color -o white
+    # echo -n @
+
+    # if test -z "$SSH_CLIENT"
+    #    set_color -o blue
+    # else
+    #    set_color -o cyan
+    # end
+
+    # echo -n (prompt_hostname)
+    set_color -o white
+    echo -n :(prompt_pwd)
+    set_color -o green
+    echo -n ']'
+
+    # Date
+    _nim_prompt_wrapper $retc '' (date +%T)
+
+    # Vi-mode
+    # The default mode prompt would be prefixed, which ruins our alignment.
+    function fish_mode_prompt
+    end
+
+    if test "$fish_key_bindings" = fish_vi_key_bindings
+        or test "$fish_key_bindings" = fish_hybrid_key_bindings
+        set -l mode
+        switch $fish_bind_mode
+            case default
+                set mode (set_color --bold red)N
+            case insert
+                set mode (set_color --bold green)I
+            case replace_one
+                set mode (set_color --bold green)R
+                echo '[R]'
+            case replace
+                set mode (set_color --bold cyan)R
+            case visual
+                set mode (set_color --bold magenta)V
+        end
+        set mode $mode(set_color normal)
+        _nim_prompt_wrapper $retc '' $mode
+    end
+
+
+    # Virtual Environment
+    set -q VIRTUAL_ENV_DISABLE_PROMPT
+    or set -g VIRTUAL_ENV_DISABLE_PROMPT true
+    set -q VIRTUAL_ENV
+    and _nim_prompt_wrapper $retc V (basename "$VIRTUAL_ENV")
+
+    # git
+    set -l prompt_git (fish_git_prompt '%s')
+    test -n "$prompt_git"
+    and _nim_prompt_wrapper $retc G $prompt_git
+
+    # Battery status
+    type -q acpi
+    and test (acpi -a 2> /dev/null | string match -r off)
+    and _nim_prompt_wrapper $retc B (acpi -b | cut -d' ' -f 4-)
+
+    # New line
+    echo
+
+    # Background jobs
+    set_color normal
+
+    for job in (jobs)
+        set_color $retc
+        echo -n '│ '
+        set_color brown
+        echo $job
+    end
+
+    set_color normal
+    set_color $retc
+    echo -n '╰─>'
+    set_color -o red
+    echo -n '$ '
+    set_color normal
 end

@@ -17,6 +17,7 @@ vim.keymap.set('n', '<ESC><ESC>', ':<C-u>set nohlsearch!<CR>')
 
 --新規タブでターミナルを起動
 vim.keymap.set('n', 'tt', ':tabe<CR>:terminal<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', 'tv', ':vs<CR>:terminal<CR>', { noremap = true, silent = true })
 
 -- ターミナルを開いたら常にinsertモードに入る
 vim.cmd([[autocmd TermOpen * :startinsert]])

@@ -7,6 +7,9 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- denops
+  use 'vim-denops/denops.vim'
+
   -- カラースキーム
   use 'folke/tokyonight.nvim'
 
@@ -83,4 +86,10 @@ return require('packer').startup(function(use)
 
   -- ウィンドウのリサイズを簡単にする
   use 'simeji/winresizer'
+
+  -- Markdownのプレビュー
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
 end)

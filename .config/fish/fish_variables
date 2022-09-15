@@ -22,6 +22,8 @@ SETUVAR _fish_abbr_lmkc:latexmk\x20\x2dc
 SETUVAR _fish_abbr_ls:lsd
 SETUVAR _fish_abbr_mkdir:mkdir\x20\x2dp
 SETUVAR _fish_abbr_more:less
+SETUVAR _fish_abbr_pbcopy:xclip\x20\x2dselection\x20c
+SETUVAR _fish_abbr_pbpaste:xclip\x20\x2dselection\x20c\x20\x2do
 SETUVAR _fish_abbr_relogin:exec\x20/usr/bin/fish\x20\x2d\x2dlogin
 SETUVAR _fish_abbr_vim:nvim
 SETUVAR _fisher_ccyip_2F_push_2D_line_2E_fish_files:/home/maillein/\x2econfig/fish/functions/pop_line\x2efish\x1e/home/maillein/\x2econfig/fish/functions/push_line\x2efish\x1e/home/maillein/\x2econfig/fish/conf\x2ed/push\x2dline_key_bindings\x2efish

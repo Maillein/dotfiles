@@ -120,3 +120,7 @@ require('lspconfig')['solargraph'].setup {
 require('lspconfig')['omnisharp'].setup {
 
 }
+
+require('lspconfig')['opencl_ls'].setup {
+
+}

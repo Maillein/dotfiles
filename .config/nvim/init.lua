@@ -18,6 +18,8 @@ for var, val in pairs(vars) do
   api.nvim_set_var(var, val)
 end
 
+vim.cmd([[autocmd BufNewFile,BufRead *.cl set filetype=OpenCL]])
+
 require('core')
 require('keymap')
 require('color')

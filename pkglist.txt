@@ -1,6 +1,8 @@
 accountsservice
 acpi
 acpid
+alacritty-git
+alarm-clock-applet
 alsa-firmware
 alsa-utils
 amd-ucode
@@ -24,11 +26,13 @@ btrfs-progs
 byobu
 bzip2
 catfish
+chrome-remote-desktop
 chromium
 clang
 cmake
 coreutils
 cpupower
+crazydiskinfo
 cronie
 cryptsetup
 dbus-x11
@@ -43,6 +47,7 @@ dnsmasq
 docker
 docker-compose
 dosfstools
+dotnet-runtime-5.0-bin
 dotnet-sdk
 e2fsprogs
 ecryptfs-utils
@@ -52,6 +57,7 @@ evince
 exfat-utils
 exo
 f2fs-tools
+f5vpn
 fakeroot
 fcitx-skk
 fd
@@ -64,6 +70,7 @@ firefox
 fish
 flex
 fontforge
+galculator-gtk2
 garcon
 gawk
 gcc
@@ -71,8 +78,10 @@ gcc-libs
 gcolor2
 gettext
 gimp
+git-delta
 github-cli
 glibc
+gnome-icon-theme
 gnome-keyring
 gnome-mahjongg
 gnome-mines
@@ -81,6 +90,7 @@ go
 gparted
 grep
 grub
+grub-customizer
 grub-theme-manjaro
 gst-libav
 gst-plugins-bad
@@ -110,6 +120,7 @@ ipw2100-fw
 ipw2200-fw
 jdk-openjdk
 jdk8-openjdk
+jetbrains-toolbox
 jfsutils
 jq
 jre8-openjdk
@@ -132,6 +143,8 @@ libopenraw
 libpamac-flatpak-plugin
 libpamac-snap-plugin
 libreoffice-fresh
+libreswan
+libsixel-git
 libuninameslist
 libva-intel-driver
 libva-mesa-driver
@@ -142,6 +155,7 @@ lightdm
 lightdm-gtk-greeter
 lightdm-gtk-greeter-settings
 linux-firmware
+linux414-headers
 linux510
 linux515
 linux515-headers
@@ -152,9 +166,11 @@ lsd
 lua
 lvm2
 m4
+magnus
 make
 man-db
 man-pages
+man-pages-ja
 manjaro-alsa
 manjaro-application-utility
 manjaro-asian-input-support-fcitx
@@ -171,15 +187,18 @@ manjaro-settings-manager-notifier
 manjaro-system
 manjaro-wallpapers-18.0
 manjaro-xfce-settings
+marktext-bin
 matcha-gtk-theme
 mdadm
 mdf2iso
+megasync
 memtest86+
 menulibre
 mesa-demos
 mesa-vdpau
 mhwd
 mhwd-db
+minecraft-launcher-cmd
 mkinitcpio-openswap
 mlocate
 mobile-broadband-provider-info
@@ -189,6 +208,7 @@ mtpfs
 mugshot
 nano
 neovim
+nerd-fonts-ricty
 net-tools
 nethogs
 network-manager-applet
@@ -209,10 +229,14 @@ ntfs-3g
 ntp
 numlockx
 obs-studio
+obs-v4l2sink-git
+opencl-amd
 opencv
 openresolv
 openssh
+orage
 os-prober
+otf-source-han-code-jp
 p7zip
 pacman
 pamac-gtk
@@ -240,11 +264,13 @@ pyenv
 python-fonttools
 python-ipywidgets
 python-matplotlib
+python-nbdime
 python-numpy
 python-pipenv
 python-pygments
 python-sphinx_rtd_theme
 qemu-desktop
+qpdfview
 radeontop
 refind
 reiserfsprogs
@@ -261,6 +287,7 @@ sdl_gfx
 sed
 shadow
 simplescreenrecorder
+slack-wayland
 snapd
 snapd-glib
 spectre-meltdown-checker
@@ -271,6 +298,7 @@ sysfsutils
 systemd-fsck-silent
 systemd-sysvcompat
 tar
+tdrop-git
 terminus-font
 texinfo
 texlive-bibtexextra
@@ -289,6 +317,7 @@ texlive-science
 thunar
 thunar-archive-plugin
 thunar-media-tags-plugin
+thunar-megasync
 thunar-volman
 thunderbird
 timeshift
@@ -296,11 +325,14 @@ tk
 tlp
 transmission-gtk
 tree
+ttf-cica
 ttf-dejavu
 ttf-droid
 ttf-inconsolata
 ttf-indic-otf
 ttf-liberation
+ttf-wps-fonts
+tty-clock-git
 tumbler
 udiskie
 udisks2
@@ -313,6 +345,7 @@ util-linux
 v4l2loopback-dkms
 vi
 viewnior
+visual-studio-code-bin
 vivaldi
 vivaldi-ffmpeg-codecs
 vlc
@@ -327,7 +360,9 @@ wget
 which
 wine
 wmctrl
+woeusb
 wpa_supplicant
+wps-office
 xclip
 xcursor-simpleandsoft
 xcursor-vanilla-dmz-aa
@@ -390,4 +425,5 @@ yay
 yelp
 z3
 zensu
+zoom
 zsh

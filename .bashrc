@@ -154,7 +154,7 @@ export PATH="`ruby -e 'puts Gem.user_dir'`/bin:$PATH"
 export PATH=~/.npm-global/bin:$PATH
 
 # ls を lsd にしてかっこよくする
-alias ls='lsd'
+# alias ls='lsd'
 
 # Powerline設定
 function _update_ps1() {
@@ -165,10 +165,10 @@ if [[ "${TERM}" != "linux" ]]; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
-source "$HOME/.cargo/env"
+# source "$HOME/.cargo/env"
 
 # ECDownloader2へのパス
-export PATH="/home/maillein/RiderProjects/ECDownloader2/ECDownloader2/publish/:$PATH"
+# export PATH="/home/maillein/RiderProjects/ECDownloader2/ECDownloader2/publish/:$PATH"
 
 alias mine='(minecraft-launcher-cmd --username realshinya1999@gmail.com --password Scene4649 > /dev/null) &'
 

@@ -124,3 +124,7 @@ require('lspconfig')['omnisharp'].setup {
 require('lspconfig')['opencl_ls'].setup {
 
 }
+
+require('lspconfig')['kotlin_language_server'].setup {
+
+}

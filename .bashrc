@@ -142,10 +142,6 @@ ex ()
 ########## ここから下個人的に付け加えた設定###########
 ######################################################
 
-# Capslock -> Ctrl
-# セッションと起動でログイン時に実行するようにしたらOK？
-# xmodmap ~/.Xmodmap
-
 # Rubyのパス？
 export PATH="`ruby -e 'puts Gem.user_dir'`/bin:$PATH"
 
@@ -154,25 +150,7 @@ export PATH="`ruby -e 'puts Gem.user_dir'`/bin:$PATH"
 export PATH=~/.npm-global/bin:$PATH
 
 # ls を lsd にしてかっこよくする
-# alias ls='lsd'
-
-# Powerline設定
-function _update_ps1() {
-    PS1="$(powerline-go -error $?)"
-}
-
-if [[ "${TERM}" != "linux" ]]; then
-    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-fi
-
-# source "$HOME/.cargo/env"
-
-# ECDownloader2へのパス
-# export PATH="/home/maillein/RiderProjects/ECDownloader2/ECDownloader2/publish/:$PATH"
-
-alias mine='(minecraft-launcher-cmd --username realshinya1999@gmail.com --password Scene4649 > /dev/null) &'
+alias ls='lsd'
 
 # github-cliの設定
 eval "$(gh completion -s bash)"
-
-exec fish

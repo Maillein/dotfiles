@@ -1,0 +1,68 @@
+abbrevs:
+  - name: git status
+    abbr: gst
+    snippet: git status
+
+  - name: git add
+    abbr: ga
+    snippet: git add
+
+  - name: git add .
+    abbr: gaa
+    snippet: git add .
+
+  - name: git switch
+    abbr: gsw
+    snippet: git switch
+
+  - name: git switch -c
+    abbr: gsc
+    snippet: git switch -c
+
+  - name: git log
+    abbr: glg
+    snippet: git log --graph --all --pretty=format:'%Cred%h%Creset %Cgreen(%cI) -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=rfc2822
+
+  - name: git branch
+    abbr: gbr
+    snippet: git branch
+
+  - name: lsd
+    abbr: ls
+    snippet: lsd
+
+  - name: lsd -al
+    abbr: la
+    snippet: lsd -al
+
+  - name: cp -ir
+    abbr: cp
+    snippet: cp -ir
+
+  - name: readlink -f
+    abbr: fullpath
+    snippet: readlink -f
+
+  - name: mkdir -p
+    abbr: mkdir
+    snippet: mkdir -p
+
+  - name: byobu
+    abbr: bb
+    snippet: byobu
+
+  - name: xclip -selection -c
+    abbr: cpy
+    snippet: xclip -selection -c
+
+  - name: xclip -selection -c -o
+    abbr: pst
+    snippet: xclip -selection -c -o
+
+  - name: exec "$SHELL"
+    abbr: relogin
+    snippet: exec "$SHELL"
+
+  - name: yay --noconfirm
+    abbr: yay
+    snippet: yay --noconfirm

@@ -11,6 +11,9 @@ fi
 
 ## 以下自分で追加した設定
 export PATH=$HOME/.cargo/bin:$PATH
+# npm install -g に失敗しないようにする
+# https://qiita.com/NaokiIshimura/items/cc07441939b226e779c6
+export PATH=~/.npm-global/bin:$PATH
 
 # sheldonを読み込み
 eval "$(sheldon source)"

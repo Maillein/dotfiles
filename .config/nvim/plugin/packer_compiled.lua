@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/maillein/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/maillein/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/maillein/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/maillein/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/maillein/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/home/maillein-wm/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/maillein-wm/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/maillein-wm/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/maillein-wm/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/maillein-wm/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -76,153 +76,153 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["auto-pairs"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/auto-pairs",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/auto-pairs",
     url = "https://github.com/jiangmiao/auto-pairs"
   },
   ["caw.vim"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/caw.vim",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/caw.vim",
     url = "https://github.com/tyru/caw.vim"
   },
   ["cmp-buffer"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
   ["cmp-cmdline"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
     url = "https://github.com/hrsh7th/cmp-cmdline"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["cmp-path"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/cmp-path",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
   ["cmp-vsnip"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
   ["denops.vim"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/denops.vim",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/denops.vim",
     url = "https://github.com/vim-denops/denops.vim"
   },
   ["fern-git-status.vim"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/fern-git-status.vim",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/fern-git-status.vim",
     url = "https://github.com/lambdalisue/fern-git-status.vim"
   },
   ["fern-hijack.vim"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/fern-hijack.vim",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/fern-hijack.vim",
     url = "https://github.com/lambdalisue/fern-hijack.vim"
   },
   ["fern-renderer-nerdfont.vim"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/fern-renderer-nerdfont.vim",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/fern-renderer-nerdfont.vim",
     url = "https://github.com/lambdalisue/fern-renderer-nerdfont.vim"
   },
   ["fern.vim"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/fern.vim",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/fern.vim",
     url = "https://github.com/lambdalisue/fern.vim"
   },
   ["lspkind.nvim"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
     url = "https://github.com/onsails/lspkind.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["markdown-preview.nvim"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
     url = "https://github.com/williamboman/mason-lspconfig.nvim"
   },
   ["mason.nvim"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
   ["nerdfont.vim"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/nerdfont.vim",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/nerdfont.vim",
     url = "https://github.com/lambdalisue/nerdfont.vim"
   },
   ["nvim-cmp"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-ts-rainbow"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
     url = "https://github.com/p00f/nvim-ts-rainbow"
   },
   ["nvim-web-devicons"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["tokyonight.nvim"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
   ["vim-sandwich"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/vim-sandwich",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/vim-sandwich",
     url = "https://github.com/machakann/vim-sandwich"
   },
   ["vim-vsnip"] = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/vim-vsnip",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/vim-vsnip",
     url = "https://github.com/hrsh7th/vim-vsnip"
   },
   winresizer = {
     loaded = true,
-    path = "/home/maillein/.local/share/nvim/site/pack/packer/start/winresizer",
+    path = "/home/maillein-wm/.local/share/nvim/site/pack/packer/start/winresizer",
     url = "https://github.com/simeji/winresizer"
   }
 }

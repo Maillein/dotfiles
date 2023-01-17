@@ -12,5 +12,8 @@
 
 shell = "zsh"
 
-# [plugins.abbr]
-# github = "Ryooooooga/zabrze"
+[plugins.completion]
+github = "zsh-users/zsh-completions"
+
+[plugins.highlighting]
+github = "zsh-users/zsh-syntax-highlighting"

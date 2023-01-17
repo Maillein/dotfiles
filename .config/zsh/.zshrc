@@ -57,7 +57,7 @@ function right_prompt {
     elif [[ -n `echo "$git_status" | grep "^nothing to"` ]] then
       # pushされていなければ塗りつぶし
       if [[ -n `git log origin/"$branch_name".."$branch_name"` ]] then
-        fgcolor="white"
+        fgcolor="brack"
         bgcolor="green"
       else
         fgcolor="green"

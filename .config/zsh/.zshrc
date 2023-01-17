@@ -3,19 +3,26 @@ export PATH=~/.cargo/bin:$PATH
 # https://qiita.com/NaokiIshimura/items/cc07441939b226e779c6
 export PATH=~/.npm-global/bin:$PATH
 
+# zabrzeを読み込み
+# https://ryooooooga.hateblo.jp/entry/2021/08/15/221759
+eval "$(zabrze init --bind-keys)"
+
+# sheldonを読み込み
+eval "$(sheldon source)"
+
 autoload -U colors; colors
 function left_prompt {
   if [ -n "$SSH_CONNECTION" ]; then
     # ssh接続中の処理
-    local ssh_usr="${fg[magenta]}%n@%m${reset_color}"
+    local ssh_usr="${fg[magenta]}%n@%m%{$reset_color%}"
     local color="%(?.green.red)"
     local dir="%(5~,%-2~/.../%2~,%~)"
-    PROMPT="${ssh_usr}%F{color}${dir}${reset_color}%# "
+    PROMPT="${ssh_usr}%F{color}${dir}%{$reset_color%}%# "
   else
     # sshではない時の処理
     local color="%(?.green.red)"
     local dir="%(5~,%-2~/.../%2~,%~)"
-    PROMPT="%F{${color}}${dir}${reset_color}%# "
+    PROMPT="%F{${color}}${dir}%k%f%# "
   fi
 }
 
@@ -24,54 +31,53 @@ function right_prompt {
   if [[  -n $branch_name  ]] then
     # git管理フォルダ内
     local git_status=`git status 2> /dev/null`
-    local fgcolor bgcolor
+    local fgcolor bgcolor bgcolor2
     if [[ -n `echo "$git_status" | grep "^rebase in progress"` ]] then
       # コンフリクトが起こった状態
-      fgcolor="red"
+      fgcolor="%F{red}"
       branch_name="CONFLICT"
     elif [[ -n `echo "$git_status" | grep "^Unmerged paths"` ]] then
       # 自動マージできないファイルがある状態
       if [[ -n `echo "$git_status" | grep "Changes to be committed:"` ]] then
         # ステージングされているファイルが存在
-        fgcolor="white"
-        bgcolor="red"
+        fgcolor="%F{white}"
+        bgcolor="%K{red}"
+        bgcolor2="%k"
       else
-        fgcolor="red"
+        fgcolor="%F{red}"
       fi
     elif [[ -n `echo "$git_status" | grep "Changes to be committed:"` ]] then
       # ステージングファイルがある状態
       # 新規ファイル、リネーム、削除ファイルがある場合はマゼンタ塗りつぶし
       # ステージング部分の文字列のみ抽出し、そこに特定の文字が含まれているかどうか
-      fgcolor="black"
+      fgcolor="%F{black}"
+      bgcolor2="%k"
       if [[ -n `echo "$git_status" | awk '/Changes to be committed:/,/(Changes not staged for commit:|Untracked files:)/' | grep -e "new file:" -e "deleted:" -e "renamed:"` ]] then
-        bgcolor="magenta"
+        bgcolor="%K{magenta}"
       else
-        bgcolor="yellow"
+        bgcolor="%K{yellow}"
       fi
     elif [[ -n `echo "$git_status" | grep -e "Untracked files:" -e "deleted:"` ]] then
       # 新規ファイル、リネーム、削除ファイルがある状態
-      fgcolor="magenta"
+      fgcolor="%F{magenta}"
     elif [[ -n `echo "$git_status" | grep -e "modified"` ]] then
       # 更新されたファイルがある状態
-      fgcolor="yellow"
-    elif [[ -n `echo "$git_status" | grep "^nothing to"` ]] then
+      fgcolor="%F{yellow}"
+    elif [[ -n `echo "$git_status" | grep -e "^nothing to commit"` ]] then
       # pushされていなければ塗りつぶし
       if [[ -n `git log origin/"$branch_name".."$branch_name"` ]] then
-        fgcolor="brack"
-        bgcolor="green"
+        fgcolor="%F{black}"
+        bgcolor="%K{green}"
+        bgcolor2="%k"
       else
-        fgcolor="green"
+        fgcolor="%F{green}"
       fi
     else
-      fgcolor="white"
+      fgcolor="%F{white}"
     fi
-    if [[ -n $bgcolor ]] then
-      RPROMPT="%F{${fgcolor}}%K{${bgcolor}}[${branch_name}]%k%f"
-    else
-      RPROMPT="%F{${fgcolor}}[${branch_name}]%f"
-    fi
+    RPROMPT="${bgcolor}${fgcolor}[${branch_name}]%F${bgcolor2}"
   else
-    RPROMPT="%F{green}[%*]%f"
+    RPROMPT="%F{green}[%*]%{$reset_color%}"
   fi
 }
 
@@ -79,10 +85,3 @@ autoload -Uz add-zsh-hook
 PERIOD=1 # gitディレクトリでのright_promptは描画にやや負荷がかかるため1秒以内はキャッシュしたものを使う
 add-zsh-hook periodic right_prompt
 add-zsh-hook precmd left_prompt
-
-# zabrzeを読み込み
-# https://ryooooooga.hateblo.jp/entry/2021/08/15/221759
-eval "$(zabrze init --bind-keys)"
-
-# sheldonを読み込み
-eval "$(sheldon source)"

@@ -27,13 +27,13 @@ abbrevs:
     abbr: gbr
     snippet: git branch
 
-  - name: lsd
+  - name: exa
     abbr: ls
-    snippet: lsd
+    snippet: exa
 
-  - name: lsd -al
-    abbr: la
-    snippet: lsd -al
+  - name: exa -ahl
+    abbr: ll
+    snippet: exa -ahl
 
   - name: cp -ir
     abbr: cp
@@ -66,3 +66,7 @@ abbrevs:
   - name: yay --noconfirm
     abbr: yay
     snippet: yay --noconfirm
+
+  - name: ssh mlab
+    abbr: mlab
+    snippet: ssh mlab

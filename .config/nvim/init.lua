@@ -9,16 +9,13 @@ vim.cmd('syntax off')
 
 
 local vars = {
-  python_host_prog = '/home/maillein/.local/share/virtualenvs/.nvim-python2-AaldqeR6/bin/python2',
-  python3_host_prog = '/home/maillein/.local/share/virtualenvs/.nvim-python3-Jmi4iJEZ/bin/python3',
+  python3_host_prog = '/home/maillein-wm/.nvim-python3/bin/python3',
   loaded_matchparen = 1
 }
 
 for var, val in pairs(vars) do
   api.nvim_set_var(var, val)
 end
-
-vim.cmd([[autocmd BufNewFile,BufRead *.cl set filetype=OpenCL]])
 
 require('core')
 require('keymap')

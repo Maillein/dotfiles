@@ -11,6 +11,14 @@ abbrevs:
     abbr: gaa
     snippet: git add .
 
+  - name: git commit
+    abbr: gco
+    snippet: git commit
+
+  - name: git commit -m
+    abbr: gcm
+    snippet: git commit -m
+
   - name: git switch
     abbr: gsw
     snippet: git switch

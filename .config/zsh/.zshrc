@@ -1,3 +1,16 @@
+# 履歴ファイルの保存先
+HISTFILE=$XDG_CACHE_HOME/zsh/history
+# メモリに保存される履歴の件数
+export HISTSIZE=1000
+# 履歴ファイルに保存される履歴の件数
+export SAVEHIST=100000
+# 重複を記録しない
+setopt hist_ignore_dups
+# 開始と終了を記録
+setopt EXTENDED_HISTORY
+zstyle :compinstall filename '$ZDOTDIR/.zshrc'
+
+
 export PATH=~/.cargo/bin:$PATH
 # npm install -g に失敗しないようにする
 # https://qiita.com/NaokiIshimura/items/cc07441939b226e779c6
@@ -14,7 +27,7 @@ autoload -U colors; colors
 function left_prompt {
   if [ -n "$SSH_CONNECTION" ]; then
     # ssh接続中の処理
-    local ssh_usr="${fg[magenta]}%n@%m%{$reset_color%}"
+    local ssh_usr="%{${fg[magenta]}%}%n@%m%{$reset_color%}"
     local color="%(?.green.red)"
     local dir="%(5~,%-2~/.../%2~,%~)"
     PROMPT="${ssh_usr}%F{color}${dir}%{$reset_color%}%# "
@@ -66,6 +79,11 @@ function right_prompt {
     elif [[ -n `echo "$git_status" | grep -e "^nothing to commit"` ]] then
       # pushされていなければ塗りつぶし
       if [[ -n `git log origin/"$branch_name".."$branch_name"` ]] then
+        local ahead=`echo "${git_status}" | grep -e '^Your branch is ahead of' | awk '{print $8}'`
+        ahead=${ahead:+"↑${ahead}"}
+        local behind=`echo "${git_status}" | grep -e 'Your branch is behind' | awk '{print $7}'`
+        behind=${behind:+"↓${behind}"}
+        branch_name="${branch_name}${ahead}${behind}"
         fgcolor="%F{black}"
         bgcolor="%K{green}"
         bgcolor2="%k"
@@ -75,9 +93,9 @@ function right_prompt {
     else
       fgcolor="%F{white}"
     fi
-    RPROMPT="${bgcolor}${fgcolor}[${branch_name}]%F${bgcolor2}"
+    RPROMPT="%{${bgcolor}${fgcolor}%}[${branch_name}]%F${bgcolor2}"
   else
-    RPROMPT="%F{green}[%*]%{$reset_color%}"
+    RPROMPT="%{${fg[green]}%}[%*]%{$reset_color%}"
   fi
 }
 

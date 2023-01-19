@@ -1,11 +1,12 @@
 local wezterm = require 'wezterm'
 local launch_menu = {}
+local default_prog
 
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
   default_prog = { 'Manjaro.exe' }
   table.insert(launch_menu, {
-    label = 'PowerShell',
-    args = {'pwsh.exe'}
+    label = 'PowerSHell',
+    args = { 'pwsh.exe' }
   })
 elseif wezterm.target_triple == 'x86_64-unknown-linux-gnu' then
   default_prog = { '/usr/bin/zsh', '-l' }
@@ -16,15 +17,16 @@ local config = {
   -- hide_tab_bar_if_only_one_tab = true,
   launch_menu = launch_menu,
   color_scheme = 'tokyonight',
-  font_shaper = "Harfbuzz",
+  font_shaper = 'Harfbuzz',
   font = wezterm.font_with_fallback {
     {
       family = 'UDEV Gothic NFLG',
-      harfbuzz_features = { 'calt', 'clig', 'liga', 'kern' },
+      harfbuzz_features = { 'calt', 'clig', 'liga' }
     },
-    'Noto Color Emoji'
+    'Noto Color Emoji',
   },
   font_size = 14,
+  front_end = 'WebGpu',
   dpi = 144.0,
   use_ime = true,
 }

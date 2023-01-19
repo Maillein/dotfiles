@@ -79,6 +79,11 @@ function right_prompt {
     elif [[ -n `echo "$git_status" | grep -e "^nothing to commit"` ]] then
       # pushされていなければ塗りつぶし
       if [[ -n `git log origin/"$branch_name".."$branch_name"` ]] then
+        local ahead=`echo "${git_status}" | grep -e '^Your branch is ahead of' | awk '{print $8}'`
+        ahead=${ahead:+"↑${ahead}"}
+        local behind=`echo "${git_status}" | grep -e 'Your branch is behind' | awk '{print $7}'`
+        behind=${behind:+"↓${behind}"}
+        branch_name="${branch_name}${ahead}${behind}"
         fgcolor="%F{black}"
         bgcolor="%K{green}"
         bgcolor2="%k"

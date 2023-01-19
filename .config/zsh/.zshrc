@@ -1,3 +1,6 @@
+HISTFILE=$XDG_CACHE_HOME/zsh/hisotry
+zstyle :compinstall filename '$ZDOTDIR/.zshrc'
+
 export PATH=~/.cargo/bin:$PATH
 # npm install -g に失敗しないようにする
 # https://qiita.com/NaokiIshimura/items/cc07441939b226e779c6
@@ -14,7 +17,7 @@ autoload -U colors; colors
 function left_prompt {
   if [ -n "$SSH_CONNECTION" ]; then
     # ssh接続中の処理
-    local ssh_usr="${fg[magenta]}%n@%m%{$reset_color%}"
+    local ssh_usr="%{${fg[magenta]}%}%n@%m%{$reset_color%}"
     local color="%(?.green.red)"
     local dir="%(5~,%-2~/.../%2~,%~)"
     PROMPT="${ssh_usr}%F{color}${dir}%{$reset_color%}%# "
@@ -75,9 +78,9 @@ function right_prompt {
     else
       fgcolor="%F{white}"
     fi
-    RPROMPT="${bgcolor}${fgcolor}[${branch_name}]%F${bgcolor2}"
+    RPROMPT="%{${bgcolor}${fgcolor}%}[${branch_name}]%F${bgcolor2}"
   else
-    RPROMPT="%F{green}[%*]%{$reset_color%}"
+    RPROMPT="%{${fg[green]}%}[%*]%{$reset_color%}"
   fi
 }
 

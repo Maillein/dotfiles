@@ -32,12 +32,11 @@ local config = {
   disable_default_key_bindings = true,
   leader = { key = 'Space', mods = 'CTRL', timeout_milliseconds = 1000 },
   keys = {
-    -- send Ctrl + a
-    -- { key = 'Space', mods = 'LEADER|CTRL', action = wezterm.action { SendString = '\x01' } },
-
     -- Copy & Paste
     { key = 'C', mods = 'CTRL', action = wezterm.action { CopyTo = 'Clipboard' } },
     { key = 'V', mods = 'CTRL', action = wezterm.action { PasteFrom = 'Clipboard' } },
+
+    { key = 'X', mods = 'CTRL', action = wezterm.action.ActivateCopyMode },
 
     -- Tab
     { key = 't', mods = 'LEADER', action = wezterm.action { SpawnTab = 'CurrentPaneDomain' } },
@@ -59,6 +58,9 @@ local config = {
     { key = 's', mods = 'LEADER', action = wezterm.action { SplitHorizontal = { domain = 'CurrentPaneDomain' } } },
     { key = 'v', mods = 'LEADER', action = wezterm.action { SplitVertical = { domain = 'CurrentPaneDomain' } } },
 
+    -- Enter Pane Mode
+    { key = 'p', mods = 'LEADER', action = wezterm.action { ActivateKeyTable = { name = 'pane_mode', one_shot = false } } },
+
     -- Activate Pane
     { key = 'RightArrow', mods = 'ALT', action = wezterm.action { ActivatePaneDirection = 'Right' } },
     { key = 'LeftArrow', mods = 'ALT', action = wezterm.action { ActivatePaneDirection = 'Left' } },
@@ -71,16 +73,44 @@ local config = {
     { key = 'UpArrow', mods = 'ALT|SHIFT', action = wezterm.action { AdjustPaneSize = { 'Up', 2 } } },
     { key = 'DownArrow', mods = 'ALT|SHIFT', action = wezterm.action { AdjustPaneSize = { 'Down', 2 } } },
 
-    -- Close Pane
-    { key = 'c', mods = "LEADER", action = wezterm.action { CloseCurrentPane = { confirm = false } } },
+    -- Close Pane & TAB
+    { key = 'c', mods = "LEADER", action = wezterm.action { CloseCurrentPane = { confirm = true } } },
+    { key = 'C', mods = "LEADER", action = wezterm.action { CloseCurrentTab = { confirm = true } } },
 
     -- Font
-    { key = '-', mods = 'LEADER', action = wezterm.action.DecreaseFontSize },
-    { key = ';', mods = 'LEADER', action = wezterm.action.IncreaseFontSize },
-    { key = 'r', mods = 'LEADER', action = wezterm.action.ResetFontSize },
+    { key = 'f', mods = 'LEADER',
+      action = wezterm.action { ActivateKeyTable = { name = 'font_size_mode', one_shot = false } } },
 
     -- Fullscreen
     { key = 'Enter', mods = 'ALT', action = wezterm.action.ToggleFullScreen }
+  },
+
+  key_tables = {
+    pane_mode = {
+      { key = 'h', action = wezterm.action.ActivatePaneDirection 'Left' },
+      { key = 'j', action = wezterm.action.ActivatePaneDirection 'Down' },
+      { key = 'k', action = wezterm.action.ActivatePaneDirection 'Up' },
+      { key = 'l', action = wezterm.action.ActivatePaneDirection 'Right' },
+      { key = 'h', mods = 'CTRL', action = wezterm.action { AdjustPaneSize = { 'Left', 2 } } },
+      { key = 'j', mods = 'CTRL', action = wezterm.action { AdjustPaneSize = { 'Down', 2 } } },
+      { key = 'k', mods = 'CTRL', action = wezterm.action { AdjustPaneSize = { 'Up', 2 } } },
+      { key = 'l', mods = 'CTRL', action = wezterm.action { AdjustPaneSize = { 'Right', 2 } } },
+      { key = 'j', mods = 'SHIFT', action = wezterm.action { ActivateTabRelative = -1 } },
+      { key = 'k', mods = 'SHIFT', action = wezterm.action { ActivateTabRelative = 1 } },
+      { key = 's', action = wezterm.action { SplitHorizontal = { domain = 'CurrentPaneDomain' } } },
+      { key = 'v', action = wezterm.action { SplitVertical = { domain = 'CurrentPaneDomain' } } },
+      { key = 'c', action = wezterm.action { CloseCurrentPane = { confirm = false } } },
+      { key = 'C', action = wezterm.action { CloseCurrentTab = { confirm = false } } },
+      { key = 'Escape', action = wezterm.action.PopKeyTable },
+      { key = '[', mods = 'CTRL', action = wezterm.action.PopKeyTable }
+    },
+    font_size_mode = {
+      { key = 'j', action = wezterm.action.DecreaseFontSize },
+      { key = 'k', action = wezterm.action.IncreaseFontSize },
+      { key = 'r', action = wezterm.action.ResetFontSize },
+      { key = 'Escape', action = wezterm.action.PopKeyTable },
+      { key = '[', mods = 'CTRL', action = wezterm.action.PopKeyTable }
+    }
   }
 }
 

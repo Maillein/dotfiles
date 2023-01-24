@@ -1,14 +1,17 @@
 local wezterm = require 'wezterm'
+local font_size = 12
 local launch_menu = {}
 local default_prog
 
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
+  font_size = 12
   default_prog = { 'Manjaro.exe' }
   table.insert(launch_menu, {
     label = 'PowerSHell',
     args = { 'pwsh.exe' }
   })
 elseif wezterm.target_triple == 'x86_64-unknown-linux-gnu' then
+  font_size = 14
   default_prog = { '/usr/bin/zsh', '-l' }
 end
 
@@ -25,7 +28,7 @@ local config = {
     },
     'Noto Color Emoji',
   },
-  font_size = 14,
+  font_size = font_size,
   front_end = 'WebGpu',
   dpi = 144.0,
   use_ime = true,
@@ -67,12 +70,6 @@ local config = {
     { key = 'UpArrow', mods = 'ALT', action = wezterm.action { ActivatePaneDirection = 'Up' } },
     { key = 'DownArrow', mods = 'ALT', action = wezterm.action { ActivatePaneDirection = 'Down' } },
 
-    -- Adjust Pane
-    { key = 'RightArrow', mods = 'ALT|SHIFT', action = wezterm.action { AdjustPaneSize = { 'Right', 2 } } },
-    { key = 'LeftArrow', mods = 'ALT|SHIFT', action = wezterm.action { AdjustPaneSize = { 'Left', 2 } } },
-    { key = 'UpArrow', mods = 'ALT|SHIFT', action = wezterm.action { AdjustPaneSize = { 'Up', 2 } } },
-    { key = 'DownArrow', mods = 'ALT|SHIFT', action = wezterm.action { AdjustPaneSize = { 'Down', 2 } } },
-
     -- Close Pane & TAB
     { key = 'c', mods = "LEADER", action = wezterm.action { CloseCurrentPane = { confirm = true } } },
     { key = 'C', mods = "LEADER", action = wezterm.action { CloseCurrentTab = { confirm = true } } },
@@ -108,6 +105,7 @@ local config = {
       { key = 'j', action = wezterm.action.DecreaseFontSize },
       { key = 'k', action = wezterm.action.IncreaseFontSize },
       { key = 'r', action = wezterm.action.ResetFontSize },
+      { key = 'R', action = wezterm.action.ResetFontAndWindowSize },
       { key = 'Escape', action = wezterm.action.PopKeyTable },
       { key = '[', mods = 'CTRL', action = wezterm.action.PopKeyTable }
     }

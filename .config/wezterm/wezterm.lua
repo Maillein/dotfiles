@@ -26,6 +26,10 @@ local config = {
       family = 'UDEV Gothic NFLG',
       harfbuzz_features = { 'calt', 'clig', 'liga' }
     },
+    {
+      family = 'Hack',
+      harfbuzz_features = { 'calt', 'clig', 'liga' }
+    },
     'Noto Color Emoji',
   },
   font_size = font_size,

@@ -78,7 +78,7 @@ function right_prompt {
       fgcolor="%F{yellow}"
     elif [[ -n `echo "$git_status" | grep -e "^nothing to commit"` ]] then
       # pushされていなければ塗りつぶし
-      if [[ -n `git log origin/"$branch_name".."$branch_name"` ]] then
+      if [[ -n `git log origin/"$branch_name".."$branch_name" 2> /dev/null` ]] then
         if [[ -n `echo "$git_status" | grep -e "^Your branch and 'origin/${branch_name}' have diverged"` ]] then
           local ahead=`echo "${git_status}" | grep -E '^and have [1-9]+ and [1-9]+' | awk '{print $3}'`
           ahead=${ahead:+"↑${ahead}"}

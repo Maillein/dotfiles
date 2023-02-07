@@ -15,6 +15,8 @@ export PATH=~/.cargo/bin:$PATH
 # npm install -g に失敗しないようにする
 # https://qiita.com/NaokiIshimura/items/cc07441939b226e779c6
 export PATH=~/.npm-global/bin:$PATH
+export PATH=/usr/local/cuda-12.0/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-12.0/lib64:$LD_LIBRARY_PATH
 
 # zabrzeを読み込み
 # https://ryooooooga.hateblo.jp/entry/2021/08/15/221759

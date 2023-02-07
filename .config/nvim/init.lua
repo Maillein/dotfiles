@@ -9,7 +9,7 @@ vim.cmd('syntax off')
 
 
 local vars = {
-  python3_host_prog = '/home/maillein-wm/.nvim-python3/bin/python3',
+  python3_host_prog = '~/.nvim-python3/bin/python3',
   loaded_matchparen = 1
 }
 

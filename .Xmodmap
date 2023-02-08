@@ -1,0 +1,5 @@
+remove LOCK = Caps_Lock
+keysym Caps_Lock = Control_L
+keycode 101 = Alt_R
+add Control = Control_L
+add mod1 = Alt_R

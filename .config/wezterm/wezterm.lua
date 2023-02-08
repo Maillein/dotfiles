@@ -82,8 +82,11 @@ local config = {
     { key = 'f', mods = 'LEADER',
       action = wezterm.action { ActivateKeyTable = { name = 'font_size_mode', one_shot = false } } },
 
-    -- Fullscreen
-    { key = 'Enter', mods = 'ALT', action = wezterm.action.ToggleFullScreen }
+    -- Toggle Fullscreen
+    { key = 'Enter', mods = 'ALT', action = wezterm.action.ToggleFullScreen },
+
+    -- Toggle Zoom
+    { key = 'Z', mods = 'CTRL', action = wezterm.action.TogglePaneZoomState },
   },
 
   key_tables = {

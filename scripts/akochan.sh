@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/zsh -eu
 PAIFU="$HOME/Downloads/`date '+%Y_%-m_%-d'`_Jade_Room_South.json"
 docker run --rm --volume "$HOME/Downloads:$HOME/Downloads" mjai-reviewer:latest \
   -e akochan \

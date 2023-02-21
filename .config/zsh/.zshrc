@@ -10,6 +10,8 @@ setopt hist_ignore_dups
 setopt EXTENDED_HISTORY
 zstyle :compinstall filename '$ZDOTDIR/.zshrc'
 
+typeset -U path PATH
+typeset -U ld_library_path LD_LIBRARY_PATH
 
 export PATH=~/.cargo/bin:$PATH
 # npm install -g に失敗しないようにする

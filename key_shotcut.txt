@@ -1,0 +1,1 @@
+tdrop -A -w 3840 -h 2110 wezterm --config 'window_decorations="NONE"'

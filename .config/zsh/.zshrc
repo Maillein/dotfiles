@@ -118,3 +118,13 @@ autoload -Uz add-zsh-hook
 PERIOD=1 # gitディレクトリでのright_promptは描画にやや負荷がかかるため1秒以内はキャッシュしたものを使う
 add-zsh-hook periodic right_prompt
 add-zsh-hook precmd left_prompt
+
+function gitmain() {
+  git config --global user.name "Maillein"
+  git config --global user.email "realshinya1999@gmail.com"
+}
+
+function gitsub() {
+  git config --global user.name "shinya-miura-01"
+  git config --global user.email "shinya.miura.01@gmail.com"
+}

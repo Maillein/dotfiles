@@ -10,6 +10,14 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
     label = 'PowerSHell',
     args = { 'pwsh.exe' }
   })
+  table.insert(launch_menu, {
+    label = 'Ubuntu',
+    args = { 'pwsh.exe', '-c', 'Ubuntu2204.exe' }
+  })
+  table.insert(launch_menu, {
+    label = 'Manjaro',
+    args = { 'pwsh.exe', '-c', 'Manjaro.exe' }
+  })
 elseif wezterm.target_triple == 'x86_64-unknown-linux-gnu' then
   font_size = 14
   default_prog = { '/usr/bin/zsh', '-l' }
@@ -34,8 +42,10 @@ local config = {
   },
   font_size = font_size,
   front_end = 'WebGpu',
-  dpi = 144.0,
+  -- dpi = 144.0,
+  -- dpi = 96.0,
   use_ime = true,
+  audible_bell = 'Disabled',
   disable_default_key_bindings = true,
   leader = { key = 'Space', mods = 'CTRL', timeout_milliseconds = 1000 },
   keys = {

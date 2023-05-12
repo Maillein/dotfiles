@@ -42,6 +42,9 @@ abbrevs:
   - name: exa -ahl
     abbr: ll
     snippet: exa -ahl
+  - name: exa -T
+    abbr: tree
+    snippet: exa -T
 
   - name: cp -ir
     abbr: cp
@@ -74,7 +77,3 @@ abbrevs:
   - name: yay --noconfirm
     abbr: yay
     snippet: yay --noconfirm
-
-  - name: ssh mlab
-    abbr: mlab
-    snippet: ssh mlab

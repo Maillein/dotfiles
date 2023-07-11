@@ -13,7 +13,7 @@ vim.cmd([[let mapleader = "\<space>"]])
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 
 -- set ESC+ESC Clear Search hilight
-vim.keymap.set('n', '<ESC><ESC>', ':<C-u>set nohlsearch!<CR>')
+-- vim.keymap.set('n', '<ESC><ESC>', ':<C-u>set nohlsearch!<CR>')
 
 --新規タブでターミナルを起動
 vim.keymap.set('n', 'tt', ':tabe<CR>:terminal<CR>', { noremap = true, silent = true })

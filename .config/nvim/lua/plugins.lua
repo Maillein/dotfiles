@@ -247,6 +247,34 @@ return {
     end
   },
 
+  -- LSPの稼働状況を通知
+  {
+    "j-hui/fidget.nvim",
+    config = function()
+      require("fidget").setup()
+    end
+  },
+
+  -- diagnosticをいい感じにする
+  {
+    "Maan2003/lsp_lines.nvim",
+    event = "BufEnter",
+    config = function()
+      require("lsp_lines").setup()
+      -- デフォルトのdiagnosticsを消す
+      vim.diagnostic.config({
+        virtual_text = false,
+      })
+      -- keymap
+      vim.keymap.set(
+        "",
+        "<Leader>l",
+        require("lsp_lines").toggle,
+        { desc = "Toggle lsp_lines" }
+      )
+    end
+  },
+
   -- ウィンドウのリサイズを簡単にする
   {
     "simeji/winresizer"

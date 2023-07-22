@@ -1,0 +1,10 @@
+[user]
+	email = realshinya1999@gmail.com
+	name = Maillein
+[core]
+	editor = nvim
+	autocrlf = input
+[init]
+	defaultBranch = main
+[pull]
+	ff = only

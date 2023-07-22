@@ -1,10 +1,27 @@
 [user]
-	email = realshinya1999@gmail.com
-	name = Maillein
+  email = realshinya1999@gmail.com
+  name = Maillein
+
 [core]
-	editor = nvim
-	autocrlf = input
+  editor = nvim
+  autocrlf = input
+  pager = delta
+
 [init]
-	defaultBranch = main
+  defaultBranch = main
+
 [pull]
 	ff = only
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true    # use n and N to move between diff sections
+  light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default

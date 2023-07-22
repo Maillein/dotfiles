@@ -42,7 +42,7 @@ local config = {
   },
   font_size = font_size,
   front_end = 'WebGpu',
-  -- dpi = 144.0,
+  dpi = 144.0,
   -- dpi = 96.0,
   use_ime = true,
   audible_bell = 'Disabled',

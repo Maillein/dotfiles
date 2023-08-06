@@ -53,7 +53,7 @@ return {
   },
 
   -- lua等で"end"を補完
-  "RRethy/nvim-treesitter-endwise",
+  -- "RRethy/nvim-treesitter-endwise",
 
   -- コメントアウト
   {
@@ -103,32 +103,32 @@ return {
   },
 
   -- Treesitter
-  {
-    "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      'JoosepAlviste/nvim-ts-context-commentstring',
-    },
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = { "c", "lua", "rust", "markdown", "python" },
-        sync_install = "false",
-        auto_install = true,
-        highlight = {
-          enable = true,
-        },
-        indent = {
-          enable = false,
-        },
-        endwise = {
-          enable = true,
-        },
-        -- treesitterを使用してコメントのトグル
-        -- context_commentstring = {
-        --   enable = true,
-        -- },
-      })
-    end
-  },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter",
+  --   dependencies = {
+  --     'JoosepAlviste/nvim-ts-context-commentstring',
+  --   },
+  --   config = function()
+  --     require("nvim-treesitter.configs").setup({
+  --       ensure_installed = { "c", "lua", "rust", "markdown", "python" },
+  --       sync_install = "false",
+  --       auto_install = true,
+  --       highlight = {
+  --         enable = true,
+  --       },
+  --       indent = {
+  --         enable = false,
+  --       },
+  --       endwise = {
+  --         enable = true,
+  --       },
+  --       -- treesitterを使用してコメントのトグル
+  --       -- context_commentstring = {
+  --       --   enable = true,
+  --       -- },
+  --     })
+  --   end
+  -- },
 
   -- ファジーファインダー
   {
@@ -224,7 +224,7 @@ return {
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<C-e>'] = cmp.mapping.abort(),
-          ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+          ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
           ["<Tab>"] = cmp.mapping(function(fallback)         -- https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings for other snippet plugins
             if vim.fn["vsnip#available"](1) == 1 then
               feedkey("<Plug>(vsnip-expand-or-jump)", "")

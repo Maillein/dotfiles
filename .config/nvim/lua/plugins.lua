@@ -117,15 +117,15 @@ return {
           enable = true,
         },
         indent = {
-          enable = true,
+          enable = false,
         },
         endwise = {
           enable = true,
         },
         -- treesitterを使用してコメントのトグル
-        context_commentstring = {
-          enable = true,
-        },
+        -- context_commentstring = {
+        --   enable = true,
+        -- },
       })
     end
   },
@@ -278,5 +278,15 @@ return {
   -- ウィンドウのリサイズを簡単にする
   {
     "simeji/winresizer"
+  },
+
+  -- markdown
+  {
+    "iamcco/markdown-preview.nvim",
+    ft = {"markdown", "pandoc.markdown", "rmd"},
+    build = "sh -c 'cd app && npm install'",
+    config = function ()
+      vim.g.mkdp_echo_preview_url = 1
+    end
   },
 }

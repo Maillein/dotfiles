@@ -32,3 +32,6 @@ vim.opt.ambiwidth = "double"
 
 -- 保存していないファイルを閉じようとしたときに確認する
 vim.opt.confirm = true
+
+-- クリップボード共有
+vim.opt.clipboard:append('unnamedplus')

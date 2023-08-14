@@ -53,7 +53,7 @@ return {
   },
 
   -- lua等で"end"を補完
-  -- "RRethy/nvim-treesitter-endwise",
+  "RRethy/nvim-treesitter-endwise",
 
   -- コメントアウト
   {
@@ -103,32 +103,32 @@ return {
   },
 
   -- Treesitter
-  -- {
-  --   "nvim-treesitter/nvim-treesitter",
-  --   dependencies = {
-  --     'JoosepAlviste/nvim-ts-context-commentstring',
-  --   },
-  --   config = function()
-  --     require("nvim-treesitter.configs").setup({
-  --       ensure_installed = { "c", "lua", "rust", "markdown", "python" },
-  --       sync_install = "false",
-  --       auto_install = true,
-  --       highlight = {
-  --         enable = true,
-  --       },
-  --       indent = {
-  --         enable = false,
-  --       },
-  --       endwise = {
-  --         enable = true,
-  --       },
-  --       -- treesitterを使用してコメントのトグル
-  --       -- context_commentstring = {
-  --       --   enable = true,
-  --       -- },
-  --     })
-  --   end
-  -- },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      'JoosepAlviste/nvim-ts-context-commentstring',
+    },
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = { "c", "lua", "rust", "markdown", "python" },
+        sync_install = "false",
+        auto_install = true,
+        highlight = {
+          enable = true,
+        },
+        indent = {
+          enable = false,
+        },
+        endwise = {
+          enable = true,
+        },
+        -- treesitterを使用してコメントのトグル
+        -- context_commentstring = {
+        --   enable = true,
+        -- },
+      })
+    end
+  },
 
   -- ファジーファインダー
   {
@@ -250,6 +250,7 @@ return {
   -- LSPの稼働状況を通知
   {
     "j-hui/fidget.nvim",
+    tag = "legacy",
     config = function()
       require("fidget").setup()
     end

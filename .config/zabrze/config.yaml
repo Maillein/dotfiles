@@ -42,6 +42,7 @@ abbrevs:
   - name: exa -ahl
     abbr: ll
     snippet: exa -ahl
+
   - name: exa -T
     abbr: tree
     snippet: exa -T
@@ -77,3 +78,7 @@ abbrevs:
   - name: yay --noconfirm
     abbr: yay
     snippet: yay --noconfirm
+
+  - name: xmodmap
+    abbr: xmod
+    snippet: xmodmap ~/.Xmodmap

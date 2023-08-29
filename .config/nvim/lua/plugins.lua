@@ -244,6 +244,11 @@ return {
           { name = "buffer" },
         })
       })
+
+      -- snippetディレクトリ
+      vim.g.vsnip_snippet_dirs = {
+        vim.fn.expand('~/dotfiles/snippets'),
+      }
     end
   },
 

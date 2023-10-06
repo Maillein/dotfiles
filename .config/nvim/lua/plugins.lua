@@ -132,15 +132,15 @@ return {
 
   -- ファジーファインダー
   {
-    "nvim-telescope/telescope.nvim",
-    tag = "0.1.1",
-    dependencies = {
-      "nvim-lua/plenary.nvim"
-    },
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { { "nvim-telescope/telescope.nvim", tag = "0.1.2" }, "nvim-lua/plenary.nvim" },
     config = function()
+      require("telescope").load_extension "file_browser"
+
       vim.keymap.set('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>')
       vim.keymap.set('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>')
       vim.keymap.set('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>')
+      vim.keymap.set('n', '<leader>fv', '<cmd>lua require("telescope").extensions.file_browser.file_browser()<cr>')
       vim.keymap.set('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>')
     end,
   },
@@ -225,7 +225,7 @@ return {
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<C-e>'] = cmp.mapping.abort(),
           ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-          ["<Tab>"] = cmp.mapping(function(fallback)         -- https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings for other snippet plugins
+          ["<Tab>"] = cmp.mapping(function(fallback)          -- https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings for other snippet plugins
             if vim.fn["vsnip#available"](1) == 1 then
               feedkey("<Plug>(vsnip-expand-or-jump)", "")
             else
@@ -289,9 +289,9 @@ return {
   -- markdown
   {
     "iamcco/markdown-preview.nvim",
-    ft = {"markdown", "pandoc.markdown", "rmd"},
+    ft = { "markdown", "pandoc.markdown", "rmd" },
     build = "sh -c 'cd app && npm install'",
-    config = function ()
+    config = function()
       vim.g.mkdp_echo_preview_url = 1
     end
   },

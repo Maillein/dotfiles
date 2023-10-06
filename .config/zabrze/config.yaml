@@ -76,7 +76,7 @@ abbrevs:
     snippet: exec "$SHELL"
 
   - name: yay --noconfirm
-    abbr: yay
+    abbr: yayn
     snippet: yay --noconfirm
 
   - name: xmodmap

@@ -13,6 +13,7 @@ zstyle :compinstall filename '$ZDOTDIR/.zshrc'
 typeset -U path PATH
 typeset -U ld_library_path LD_LIBRARY_PATH
 typeset -U pkg_config_path PKG_CONFIG_PATH
+typeset -U term TERM
 
 export PATH=~/.cargo/bin:$PATH
 export PATH=${ZDOTDIR}/commands:$PATH
@@ -27,6 +28,8 @@ if $(command -v nvcc); then
   export LD_LIBRARY_PATH=/usr/local/cuda-12.0/lib64:$LD_LIBRARY_PATH
 fi
 
+export TERM=wezterm
+
 # zabrzeを読み込み
 # https://ryooooooga.hateblo.jp/entry/2021/08/15/221759
 eval "$(zabrze init --bind-keys)"
@@ -36,3 +39,6 @@ eval "$(sheldon source)"
 
 # プロンプト設定
 source "${ZDOTDIR}/prompt.sh"
+
+# Deleteキーが変なのを修正
+bindkey "^[[3~" delete-char

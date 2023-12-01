@@ -42,3 +42,5 @@ source "${ZDOTDIR}/prompt.sh"
 
 # Deleteキーが変なのを修正
 bindkey "^[[3~" delete-char
+
+export TIMEFMT=$'\n\n========================\nProgram : %J\nCPU     : %P\nuser    : %*Us\nsystem  : %*Ss\ntotal   : %*Es\n========================\n'

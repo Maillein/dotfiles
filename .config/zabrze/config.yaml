@@ -82,3 +82,15 @@ abbrevs:
   - name: xmodmap
     abbr: xmod
     snippet: xmodmap ~/.Xmodmap
+
+  - name: btm -ab
+    abbr: htop
+    snippet: btm -ab
+
+  - name: n
+    abbr: n
+    snippet: nvim
+
+  - name: b
+    abbr: b
+    snippet: bat

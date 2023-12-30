@@ -252,6 +252,17 @@ return {
     end
   },
 
+  -- ターミナルを便利に
+  {
+    "akinsho/toggleterm.nvim", 
+    config = function()
+      require("toggleterm").setup({
+        open_mapping = [[<c-\>]],
+        direction = 'float',
+      })
+    end
+  },
+
   -- LSPの稼働状況を通知
   {
     "j-hui/fidget.nvim",

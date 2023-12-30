@@ -10,6 +10,8 @@ vim.opt.cursorline = true
 -- マーカー文字で折りたたむ
 -- vim.opt.foldmethod = "marker"
 
+vim.opt.hidden = true
+
 -- treesitterを使用して折りたたむ
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
